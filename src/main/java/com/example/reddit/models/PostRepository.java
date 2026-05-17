@@ -34,4 +34,9 @@ public class PostRepository {
         Post post = feeds.get(id);
         post.addLike(userId);
     }
+
+    public void unlikePost(Integer id, int userId) {
+        Post post = feeds.get(id);
+        post.removeLike(userId);
+    }
 }

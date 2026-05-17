@@ -35,4 +35,9 @@ public class FeedService {
         postRepository.likePost(id, userId);
         return Map.of("success", true);
     }
+
+    public Map<String, Boolean> unlikePost(Integer id, int userId) {
+        postRepository.unlikePost(id, userId);
+        return Map.of("success", true);
+    }
 }

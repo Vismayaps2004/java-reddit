@@ -40,4 +40,11 @@ public class FeedController {
         int userId = 1;
         return feedService.likePost(id, userId);
     }
+    @PostMapping("/unlike-post")
+    public Map<String, Boolean> unlikePost(@RequestBody PostIdRequest postId) {
+        Integer id = postId.getPostId();
+        int userId = 1;
+        return feedService.unlikePost(id, userId);
+    }
+
 }

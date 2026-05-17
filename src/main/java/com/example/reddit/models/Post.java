@@ -35,4 +35,8 @@ public class Post {
     public void addLike(Integer id) {
         likedBy.add(id);
     }
+
+    public void removeLike(int userId) {
+        likedBy.remove(Integer.valueOf(userId));
+    }
 }
