@@ -5,6 +5,8 @@ import com.example.reddit.service.FeedService;
 import com.example.reddit.service.GetPostResponse;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 @RestController
 public class FeedController {
@@ -24,5 +26,11 @@ public class FeedController {
         String title = addpost.getTitle();
         String body = addpost.getBody();
         return feedService.addPost(title, body);
+    }
+
+    @PostMapping("/delete-post")
+    public Map<String, Boolean> DeletePost(@RequestBody PostIdRequest postId) {
+        Integer id = postId.getPostId();
+        return feedService.deletePost(id);
     }
 }

@@ -5,7 +5,7 @@ import com.example.reddit.models.PostRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class FeedService {
@@ -24,5 +24,10 @@ public class FeedService {
         Post post = Post.create(title, body);
         postRepository.addPost(post);
         return AddPostResponse.create(post);
+    }
+
+    public Map<String, Boolean> deletePost(int postId) {
+        postRepository.deletePost(postId);
+        return Map.of("success", true);
     }
 }

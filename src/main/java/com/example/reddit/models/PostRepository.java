@@ -25,4 +25,8 @@ public class PostRepository {
         return new ArrayList<>(feeds.values());
 
     }
+
+    public void deletePost(int postId) {
+        feeds.remove(postId);
+    }
 }
