@@ -12,7 +12,15 @@ public class AddPostResponse {
         this.post = post;
     }
 
-    public static AddPostResponse create(Post post) {
-        return new AddPostResponse(true ,post);
+    public static AddPostResponse create(Post data) {
+        return new AddPostResponse(true ,data);
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public Post getPost() {
+        return post;
     }
 }

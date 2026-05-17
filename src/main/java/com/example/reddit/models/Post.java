@@ -1,8 +1,11 @@
 package com.example.reddit.models;
 
+import lombok.Data;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+@Data
 public class Post {
     private final String title;
     private final String body;
