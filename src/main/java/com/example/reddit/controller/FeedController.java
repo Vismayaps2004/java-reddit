@@ -18,7 +18,8 @@ public class FeedController {
 
     @PostMapping("/get-posts")
     public GetPostResponse displayPosts () {
-      return  feedService.displayPosts();
+        int userId = 2;
+      return  feedService.displayPosts(userId);
     }
 
     @PostMapping("/add-post")

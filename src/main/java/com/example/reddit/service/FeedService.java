@@ -15,8 +15,8 @@ public class FeedService {
         this.postRepository = postRepository;
     }
 
-    public GetPostResponse displayPosts() {
-        ArrayList<Post> feeds = postRepository.displayPosts();
+    public GetPostResponse displayPosts(int currentUserId) {
+        ArrayList<Post> feeds = postRepository.displayPosts(currentUserId);
         return GetPostResponse.create(feeds);
     }
 
