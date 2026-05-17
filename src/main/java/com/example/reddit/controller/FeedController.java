@@ -29,8 +29,15 @@ public class FeedController {
     }
 
     @PostMapping("/delete-post")
-    public Map<String, Boolean> DeletePost(@RequestBody PostIdRequest postId) {
+    public Map<String, Boolean> deletePost(@RequestBody PostIdRequest postId) {
         Integer id = postId.getPostId();
         return feedService.deletePost(id);
+    }
+
+    @PostMapping("/like-post")
+    public Map<String, Boolean> likePost(@RequestBody PostIdRequest postId) {
+        Integer id = postId.getPostId();
+        int userId = 1;
+        return feedService.likePost(id, userId);
     }
 }

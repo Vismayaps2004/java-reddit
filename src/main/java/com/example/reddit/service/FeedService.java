@@ -30,4 +30,9 @@ public class FeedService {
         postRepository.deletePost(postId);
         return Map.of("success", true);
     }
+
+    public Map<String, Boolean> likePost(Integer id, int userId) {
+        postRepository.likePost(id, userId);
+        return Map.of("success", true);
+    }
 }

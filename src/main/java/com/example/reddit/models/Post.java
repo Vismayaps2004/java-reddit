@@ -31,4 +31,8 @@ public class Post {
     public void setPostId(int id) {
         this.postId = id;
     };
+
+    public void addLike(Integer id) {
+        likedBy.add(id);
+    }
 }

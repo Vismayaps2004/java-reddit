@@ -29,4 +29,9 @@ public class PostRepository {
     public void deletePost(int postId) {
         feeds.remove(postId);
     }
+
+    public void likePost(Integer id, int userId) {
+        Post post = feeds.get(id);
+        post.addLike(userId);
+    }
 }
