@@ -1,12 +1,11 @@
 package com.example.reddit.controller;
 
-import com.example.reddit.models.Post;
+import com.example.reddit.service.AddPostResponse;
 import com.example.reddit.service.FeedService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.reddit.service.GetPostResponse;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 @RestController
 public class FeedController {
     private final FeedService feedService;
@@ -15,9 +14,15 @@ public class FeedController {
         this.feedService = feedService;
     }
 
-    @GetMapping("/display-posts")
-    public HashMap<Integer, Post> displayPosts () {
+    @PostMapping("/get-posts")
+    public GetPostResponse displayPosts () {
       return  feedService.displayPosts();
     }
 
+    @PostMapping("/add-post")
+    public AddPostResponse addPost(@RequestBody Addpost addpost) {
+        String title = addpost.getTitle();
+        String body = addpost.getBody();
+        return feedService.addPost(title, body);
+    }
 }
